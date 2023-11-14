@@ -25,4 +25,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
           cat test.sh
+          if [ ${PIPESTATUS[0]} -ne 0 ]; then
+              echo -e "[ERROR] BUILD FAIL"
+              exit 1
+          fi
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
