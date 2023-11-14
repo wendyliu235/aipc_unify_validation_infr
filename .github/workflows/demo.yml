@@ -31,5 +31,4 @@ jobs:
               echo -e "[ERROR] BUILD FAIL"
               exit 1
           fi
-
       - run: echo "🍏 This job's status is ${{ job.status }}."
