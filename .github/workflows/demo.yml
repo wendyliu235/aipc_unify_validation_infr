@@ -6,6 +6,7 @@ on:
       torchrepo:
         description: 'torchrepo'
         required: true
+        type: string
         default: 'https://github.com/pytorch/pytorch.git'
   pull_request:
     branches: [main]
