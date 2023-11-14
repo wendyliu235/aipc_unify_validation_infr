@@ -8,7 +8,7 @@ on:
         required: true
         default: 'xxx'
   pull_request:
-    branches: [main]
+    branches: [dev]
 
 jobs:
   Explore-GitHub-Actions:
@@ -24,7 +24,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-          cat test.sh
+          bash test.sh
           if [ ${PIPESTATUS[0]} -ne 0 ]; then
               echo -e "[ERROR] BUILD FAIL"
               exit 1
