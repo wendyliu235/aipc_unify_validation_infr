@@ -3,10 +3,10 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
   workflow_dispatch:
     inputs:
-      case_name:
-        description: 'case_name'
+      torchrepo:
+        description: 'torchrepo'
         required: true
-        default: 'xxx'
+        default: 'https://github.com/pytorch/pytorch.git'
   pull_request:
     branches: [main]
 
@@ -23,7 +23,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          echo ${github.event.inputs.case_name}
+          echo ${{ github.event.inputs.torchrepo }}
           ls ${{ github.workspace }}
           bash test.sh
           if [ ${PIPESTATUS[0]} -ne 0 ]; then
