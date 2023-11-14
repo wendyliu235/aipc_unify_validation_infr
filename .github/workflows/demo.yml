@@ -24,7 +24,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          echo ${{ github.event.inputs.torchrepo }}
+          echo ${{ inputs.torchrepo }}
           ls ${{ github.workspace }}
           bash test.sh
           if [ ${PIPESTATUS[0]} -ne 0 ]; then
