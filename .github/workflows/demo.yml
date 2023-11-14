@@ -2,13 +2,17 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
   workflow_dispatch:
-      inputs:
-        gha_runner:
-          type: choice
-          description: Where to run the GHA job?
+    inputs:
+      case_name:
+        description: 'case_name'
+        required: true
+        default: 'xxx'
+  pull_request:
+    branches: [main]
+
 jobs:
   Explore-GitHub-Actions:
-    runs-on: [pytorch]
+    runs-on: [self-hosted]
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -21,4 +25,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
           cat test.sh
+          if [ ${PIPESTATUS[0]} -ne 0 ]; then
+              echo -e "[ERROR] BUILD FAIL"
+              exit 1
+          fi
       - run: echo "🍏 This job's status is ${{ job.status }}."
