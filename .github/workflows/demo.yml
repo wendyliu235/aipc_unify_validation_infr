@@ -8,7 +8,7 @@ on:
         required: true
         default: 'xxx'
   pull_request:
-    branches: [dev]
+    branches: [main]
 
 jobs:
   Explore-GitHub-Actions:
