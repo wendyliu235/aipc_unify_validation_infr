@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+
+set compiler_path [lindex $argv 0]
+set mkl_path [lindex $argv 1]
+spawn ./configure
+    expect " OpenXLA* with GPU support?"
+    send "y\r"
+    expect "location where DPC++ is installed"
+    send "$compiler_path\r"
+    expect " OpenXLA* with MKL support?"
+    send "y\r"
+    expect "Please specify the MKL toolkit folder"
+    send "$mkl_path\r"
+expect eof
+
