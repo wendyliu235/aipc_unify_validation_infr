@@ -1,4 +1,4 @@
-name: Public Jax CI
+name: test
 on:
   workflow_dispatch:
     inputs:
