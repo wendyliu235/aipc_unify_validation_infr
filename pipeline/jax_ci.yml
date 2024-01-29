@@ -58,12 +58,6 @@ jobs:
           set +e
           CONDA_ENV=jax_preCI_${{ github.event.pull_request.number }}_${{ runner.name }}
           source /opt/miniconda/bin/activate ${CONDA_ENV}
-          if [ -d "jax_test" ]; then
-              echo "jax_test folder already exists. Doing nothing."
-          else
-              git clone -b jax https://github.com/wendyliu235/aipc_unify_validation_infr.git jax_test
-          fi
-          cd jax_test/openxla
           mkdir -p ./logs/ut
           find ./tests -name "*.py" | sed 's#\./##g' |& tee ut_list.txt
           file_path=./ut_list.txt
@@ -88,10 +82,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: XLA-CI-Data
-          path: /home/sdp/actions-runner/workspace_openxla/jax/jax_test/openxla/logs
+          path: /home/sdp/actions-runner/workspace_openxla/jax/logs
       - name: Test Results Check
         run: |
-          cd /home/sdp/actions-runner/workspace_openxla/jax/jax_test/openxla
+          cd /home/sdp/actions-runner/workspace_openxla/jax
           #UT results check
           if [ -f "./logs/ut/err.log" ]; then
             echo "exist fail cases"
