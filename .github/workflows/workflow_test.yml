@@ -1,0 +1,16 @@
+name: test
+on:
+  workflow_dispatch:
+    inputs:
+      jax_commit:
+        description: 'Specify the commit hash'
+        default: 'master'
+
+jobs:
+  JAX-CI:
+    runs-on: Intel_openxla
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      # Rest of your workflow steps...
