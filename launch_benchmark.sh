@@ -9,10 +9,11 @@ function main {
     set_environment
 
     # requirements
-    pip uninstall h5py -y
-    pip install -r requirements.txt
-    pip uninstall transformers -y
-    pip install -e .
+    # pip uninstall h5py -y
+    # pip install -r requirements.txt
+    # pip uninstall transformers -y
+    # pip install -e .
+    pip install keras-nlp
 
     cp oob-common/hooks.py .
     # if multiple use 'xxx,xxx,xxx'
