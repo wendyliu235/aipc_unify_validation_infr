@@ -3,8 +3,6 @@ tests/array_interoperability_test.py
 tests/python_callback_test.py
 tests/lobpcg_test.py
 tests/aot_test.py
-tests/random_test.py
-tests/experimental_rnn_test.py
 tests/debug_nans_test.py
 tests/fft_test.py
 tests/filecheck/names.filecheck.py
@@ -19,7 +17,4 @@ tests/debugger_test.py
 tests/debugging_primitives_test.py
 tests/sparse_test.py
 tests/jaxpr_effects_test.py
-tests/pmap_test.py
-tests/pgle_test.py
-tests/profiler_test.py
 tests/compilation_cache_test.py
