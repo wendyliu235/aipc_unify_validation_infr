@@ -1,3 +1,4 @@
+tests/pmap_test.py
 tests/lax_scipy_spectral_dac_test.py
 tests/array_interoperability_test.py
 tests/python_callback_test.py
